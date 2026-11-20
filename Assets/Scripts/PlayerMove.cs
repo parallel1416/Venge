@@ -3,6 +3,16 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float flipSpeed = 720f;
+    [SerializeField] private Vector2 movementLimits = new Vector2(10f, 5f);
+
+    private int facingDirection = 1;
+    private Vector3 originalPosition;
+
+    private void Start()
+    {
+        originalPosition = transform.position;
+    }
 
     private void Update()
     {
@@ -18,6 +28,33 @@ public class PlayerMove : MonoBehaviour
             horizontalInput += 1f;
         }
 
-        transform.position += Vector3.right * horizontalInput * moveSpeed * Time.deltaTime;
+        if (horizontalInput != 0f)
+        {
+            int movementDirection = horizontalInput > 0f ? 1 : -1;
+
+            if (movementDirection != facingDirection)
+            {
+                Flip();
+            }
+
+            transform.position += Vector3.right * horizontalInput * moveSpeed * Time.deltaTime;
+
+            Vector3 constrainedPosition = transform.position;
+            constrainedPosition.x = Mathf.Clamp(constrainedPosition.x,
+                originalPosition.x - movementLimits.x,
+                originalPosition.x + movementLimits.x);
+            constrainedPosition.y = Mathf.Clamp(constrainedPosition.y,
+                originalPosition.y - movementLimits.y,
+                originalPosition.y + movementLimits.y);
+            transform.position = constrainedPosition;
+        }
+
+        Quaternion targetRotation = Quaternion.Euler(0f, facingDirection > 0 ? 0f : 180f, 0f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, flipSpeed * Time.deltaTime);
+    }
+
+    private void Flip()
+    {
+        facingDirection *= -1;
     }
 }
