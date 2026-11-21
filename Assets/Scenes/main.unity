@@ -213,10 +213,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1646340276}
-  - {fileID: 1605972341}
-  - {fileID: 1729799372}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
@@ -277,6 +274,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 572418676}
   smoothSpeed: 5
+  laneMoveSpeed: 2
+  yLaneOffset: 0.25
+  laneZoomOffset: 0.5
   movementLimits: {x: 10, y: 5}
 --- !u!1 &410087039
 GameObject:
@@ -405,6 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473428161}
+  - component: {fileID: 473428162}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -427,6 +428,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473428162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473428160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31524bf9330e9a42a0d59d0a8f91f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapMaterials:
+  - {fileID: 2100000, guid: 17d556bd7f37ef04f9fadfbd1a86f66a, type: 2}
+  - {fileID: 2100000, guid: 63805d15b1e08614b90c5c62c85aef18, type: 2}
+  - {fileID: 2100000, guid: 02de55bf4a3f27141996d5047f6bbfa8, type: 2}
 --- !u!1 &572418675
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,12 +470,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572418675}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.61, y: -0.74, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1211590209}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &572418677
 SpriteRenderer:
@@ -526,7 +543,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   flipSpeed: 720
+  yLaneOffset: 0.25
+  laneMoveSpeed: 2
   movementLimits: {x: 10, y: 5}
+  stage: {fileID: 1211590209}
 --- !u!1 &811663510
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +574,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.36, y: 2.11, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1979636056}
@@ -708,10 +728,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 572418676}
-  - {fileID: 1994459872}
-  - {fileID: 1293109655}
-  - {fileID: 1959023552}
   - {fileID: 1428378950}
   - {fileID: 1236462579}
   - {fileID: 1979636056}
@@ -762,7 +778,7 @@ GameObject:
   - component: {fileID: 1293109657}
   - component: {fileID: 1293109656}
   m_Layer: 3
-  m_Name: Quad0 (1)
+  m_Name: Quad1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -781,7 +797,7 @@ Transform:
   m_LocalScale: {x: 17.78, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1211590209}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1293109656
 MeshCollider:
@@ -998,12 +1014,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605972340}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 330585546}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1605972342
 MonoBehaviour:
@@ -1135,12 +1151,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646340275}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 330585546}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1646340277
 MonoBehaviour:
@@ -1273,11 +1289,11 @@ Transform:
   m_GameObject: {fileID: 1729799371}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 330585546}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1729799373
 MonoBehaviour:
@@ -1395,7 +1411,7 @@ GameObject:
   - component: {fileID: 1959023554}
   - component: {fileID: 1959023553}
   m_Layer: 3
-  m_Name: Quad0 (2)
+  m_Name: Quad2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,9 +1428,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.9}
   m_LocalScale: {x: 17.78, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1211590209}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1959023553
 MeshCollider:
@@ -1550,9 +1566,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.1}
   m_LocalScale: {x: 17.78, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1211590209}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1994459873
 MeshCollider:
@@ -1715,7 +1731,14 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
+  - {fileID: 1729799372}
+  - {fileID: 1605972341}
+  - {fileID: 1646340276}
   - {fileID: 410087041}
+  - {fileID: 572418676}
+  - {fileID: 1994459872}
+  - {fileID: 1293109655}
+  - {fileID: 1959023552}
   - {fileID: 1211590209}
   - {fileID: 863947959}
   - {fileID: 473428161}

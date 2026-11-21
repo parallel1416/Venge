@@ -4,14 +4,25 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float flipSpeed = 720f;
+    [SerializeField] private float yLaneOffset = 0.25f;
+    [SerializeField] private float laneMoveSpeed = 5f;
     [SerializeField] private Vector2 movementLimits = new Vector2(10f, 5f);
+    [SerializeField] private Transform stage;
 
     private int facingDirection = 1;
     private Vector3 originalPosition;
+    private float originalStageX;
+    private float originalStageY;
 
     private void Start()
     {
         originalPosition = transform.position;
+
+        if (stage != null)
+        {
+            originalStageX = stage.position.x;
+            originalStageY = stage.position.y;
+        }
     }
 
     private void Update()
@@ -57,6 +68,14 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             ChangeLane(-1);
+        }
+
+        if (stage != null)
+        {
+            int laneOffset = GameState.CurrentLane - GameState.MiddleLane;
+            float targetStageY = originalStageY - (laneOffset * yLaneOffset);
+            float newStageY = Mathf.MoveTowards(stage.position.y, targetStageY, laneMoveSpeed * Time.deltaTime);
+            stage.position = new Vector3(originalStageX, newStageY, stage.position.z);
         }
 
         Quaternion targetRotation = Quaternion.Euler(0f, facingDirection > 0 ? 0f : 180f, 0f);
