@@ -189,7 +189,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 572418676}
   - component: {fileID: 572418677}
   - component: {fileID: 572418678}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 1293109658}
   - component: {fileID: 1293109657}
   - component: {fileID: 1293109656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1056,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605972340}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1605972344
 Camera:
   m_ObjectHideFlags: 0
@@ -1193,7 +1193,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646340275}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1646340279
 Camera:
   m_ObjectHideFlags: 0
@@ -1330,7 +1330,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729799371}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1729799375
 Camera:
   m_ObjectHideFlags: 0
@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 1959023555}
   - component: {fileID: 1959023554}
   - component: {fileID: 1959023553}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 1994459875}
   - component: {fileID: 1994459874}
   - component: {fileID: 1994459873}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

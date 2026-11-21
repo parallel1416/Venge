@@ -49,8 +49,33 @@ public class PlayerMove : MonoBehaviour
             transform.position = constrainedPosition;
         }
 
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ChangeLane(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ChangeLane(-1);
+        }
+
         Quaternion targetRotation = Quaternion.Euler(0f, facingDirection > 0 ? 0f : 180f, 0f);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, flipSpeed * Time.deltaTime);
+    }
+
+    private void ChangeLane(int laneDirection)
+    {
+        int previousLane = GameState.CurrentLane;
+        int newLane = Mathf.Clamp(previousLane + laneDirection, GameState.FrontLane, GameState.BackLane);
+
+        if (newLane == previousLane)
+        {
+            return;
+        }
+
+        GameState.CurrentLane = newLane;
+        transform.position += Vector3.forward * laneDirection;
+        Debug.Log($"Current lane: {GameState.CurrentLane}");
     }
 
     private void Flip()
