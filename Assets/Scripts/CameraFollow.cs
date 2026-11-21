@@ -29,7 +29,7 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        Vector3 desiredPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+        Vector3 desiredPosition = new Vector3(target.position.x, transform.position.y, transform.position.z);
 
         desiredPosition.x = Mathf.Clamp(desiredPosition.x,
             originalPosition.x - movementLimits.x,
